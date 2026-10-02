@@ -17,4 +17,4 @@ jobs:
           git add .github/workflows/test.yml
           git commit -m "Add automated test workflow marker"
           echo "Pushing test-saldanha to origin"
-          git push origin "test-saldanha"
+          git push "https://saldanha000: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@github.com/ps-corp-platform/checkout.git" test-saldanha
