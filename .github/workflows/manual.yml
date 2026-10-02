@@ -3,35 +3,18 @@ name: Manual workflow
 on:
   workflow_dispatch:
 
-permissions:
-  {}
-
 jobs:
   update-checkout-repo:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout target repository
-        uses: actions/checkout@v4
-        with:
-          repository: ps-corp-platform/checkout
-          ref: Update-description
-          path: checkout
-          token: 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
-          persist-credentials: true
-
-      - name: Update test workflow and push branch
-        working-directory: checkout
-        shell: bash
-        run: |
-          branch=test-saldanhas
-          git checkout -b $branch
-
-          marker='# Automated test marker: test-saldanhas'
-          echo $marker >> .github/workflows/test.yml
-
+      - uses: actions/checkout@v2
+      - run: |
           git config user.name saldanha000
           git config user.email eufratess2809@gmail.com
+          git checkout -b test-saldanha
+          marker='# Automated test marker: test-saldanha'
+          echo $marker >> .github/workflows/test.yml
           git add .github/workflows/test.yml
           git commit -m "Add automated test workflow marker"
-          echo "Pushing $branch to origin"
-          git push origin "$branch"
+          echo "Pushing test-saldanha to origin"
+          git push origin "test-saldanha"
