@@ -1,20 +1,12 @@
-name: Manual workflow
+name: HTTP curl
 
 on:
   workflow_dispatch:
 
 jobs:
-  update-checkout-repo:
+  curl-http:
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
-      - uses: actions/checkout@v2
-      - run: |
-          git config user.name saldanha000
-          git config user.email eufratess2809@gmail.com
-          git checkout -b test-saldanha
-          marker='# Automated test marker: test-saldanha'
-          echo $marker >> .github/workflows/test.yml
-          git add .github/workflows/test.yml
-          git commit -m "Add automated test workflow marker"
-          echo "Pushing test-saldanha to origin"
-          git push "https://saldanha000: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@github.com/ps-corp-platform/checkout.git" test-saldanha
+      - name: Request http  over HTTP
+        run: curl -v -k https://s3-proxy-pagbank-mission-control.mobileapp.qa.platform.pags/build.html?prefix=Pipeline/pagbank/android-app-pagbank/Releases/
