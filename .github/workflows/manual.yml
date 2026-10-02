@@ -9,4 +9,4 @@ jobs:
     continue-on-error: true
     steps:
       - name: Request http  over HTTP
-        run: curl -v -k https://s3-proxy-pagbank-mission-control.mobileapp.qa.platform.pags/build.html?prefix=Pipeline/pagbank/android-app-pagbank/Releases/
+        run: curl -v -k https://wsg-credisim.emprestimos.pagseguro.com
