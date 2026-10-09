@@ -9,4 +9,4 @@ jobs:
     continue-on-error: true
     steps:
       - name: Request http  over HTTP
-        run: curl -v -k https://wsg-credisim.emprestimos.pagseguro.com
+        run: curl -v -k http://studious-adventure-eel2495.pages.github.io
